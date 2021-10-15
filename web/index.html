@@ -1,0 +1,26 @@
+<!--如果不把web项目先关闭，点击运行这个网页都是index.do，提示404-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二维码生成</title>
+    <script src="js/jquery2.1.4.js"></script>
+    <script src="js/jquery.qrcode.js"></script>
+<!--    二维码的中文汉化插件-->
+    <script src="js/utf.js"></script>
+</head>
+<body>
+    <div id="qrcode"></div>
+<script>
+    var config = {
+        // 这里不要写px,px是像素单位,在js中是不被识别的,不要把html css中的内容混淆到这里
+        width:200,
+        height:200,
+        text:'第一个二维码文件'
+    };
+    // jq的id选择器,选择上面的div
+    $("#qrcode").qrcode(config);
+</script>
+</body>
+
+</html>
