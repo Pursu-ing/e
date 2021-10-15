@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <servlet-class>com.kaikeba.mvc.DispatcherServlet</servlet-class>
+
+<!--        3. 用于描述配置文件的参数(3必须放在2的上面，否则报错)-->
+        <init-param>
+            <param-name>contentConfigLocation</param-name>
+            <param-value>application.properties</param-value>
+        </init-param>
+
+        <!--        2. 当项目部署时，就自动加载这个servlet-->
+        <load-on-startup>0</load-on-startup>
+
+    </servlet>
+<!--    1. 映射地址，所有的,也只有有*.do都会来找这个servlet-->
+    <servlet-mapping>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+</web-app>
