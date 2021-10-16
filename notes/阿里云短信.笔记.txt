@@ -1,0 +1,9 @@
+重点关注四个点
+1. 签名
+在阿里云的sms控制台，创建签名
+2. 模板code值
+在阿里云的sms控制台，创建短信模板code值
+3. accessKeyId
+在阿里云的RAM访问控制中心，新建一个用户accessKeyId
+4. accessKeySecret
+在阿里云的RAM访问控制中心，新建一个用户accessKeySecret
