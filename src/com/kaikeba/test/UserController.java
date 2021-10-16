@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class UserController {
 
     @ResponseBody("/login.do")
+
     // 在servlet请求中有给方法传递req 和 respon参数，这边要有接收，才能处理收发请求
     public String login(HttpServletRequest req, HttpServletResponse resp){
         return "login success";

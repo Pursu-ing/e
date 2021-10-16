@@ -1,0 +1,58 @@
+<!--layer是JQuery的弹出层插件，客户端在跟服务器进行交流的时候（比如阿贾克斯）需要时间，要告诉用户：正在加载，请等待，别去动其他地方。-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>layer的使用</title>
+    <script src="js/jquery2.1.4.js"></script>
+    <script src="layer/layer.js"></script>
+    <script>
+        function msgTest() {
+            //layer.msg("提示的文字");
+            // 回调函数：窗口关闭时调用的函数（此处是演示其更强的提示效果，即为弹出的窗口会抖动）
+            layer.msg("提示的文字",function () {
+
+            });
+        }
+
+        function loadTest() {
+            // 函数会返回窗口Id
+            var windowId = layer.load(0);//0-16样式
+
+            // 超时两秒自动关闭窗口
+            setTimeout(function () {
+                //windowId.close();//错误的使用方法
+                layer.close(windowId);
+            },2000);
+        }
+
+        // 会自动消失
+        function msg_loadTest() {
+            // 传入一个对象，用键值对的方式传入参数
+            layer.msg("提示的文字",{icon:0,shade:0.01})
+        }
+
+        // 带确定按钮的，跟上面几乎一样
+        function layer_alert() {
+            layer.alert("提示的文字",{icon:10})
+        }
+
+        // 效果：点击按钮后在指定的位置出现一个弹窗
+        function tipsTest() {
+            // tipsMore 表示支持多个弹窗 而tips(1~4)表示不同的方向
+            layer.tips("这里有秘密","#s1",{tipsMore:true,tips:1})
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="msgTest()">msg函数（重点）</button>
+    <button onclick="loadTest()">load函数（重点）</button>
+    <button onclick="msg_loadTest()">msg函数（配合load效果）</button>
+    <button onclick="layer_alert()">alert函数</button>
+    <button onclick="tipsTest()">tips函数</button>
+<p>
+    锄禾日<span id="s1">当午</span>，汗滴禾下土
+</p>
+</body>
+</html>
